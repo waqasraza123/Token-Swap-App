@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import HomeScreen from './screens/HomeScreen';
 import SwapScreen from './screens/SwapScreen';
-import "global.css";
+import "./global.css";
 
 const Stack = createNativeStackNavigator();
 
