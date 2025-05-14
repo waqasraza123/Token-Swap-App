@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type Props = {
@@ -11,42 +11,34 @@ const { width } = Dimensions.get('window');
 export default function HomeScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={{ uri: 'https://images.pexels.com/photos/7788009/pexels-photo-7788009.jpeg' }}
-        style={styles.backgroundImage}
-        resizeMode="cover"
-      >
-        <View style={styles.overlay}>
-          <View style={styles.content}>
-            <Text style={styles.title}>Mini DEX</Text>
-            <Text style={styles.subtitle}>Decentralized Token Exchange</Text>
-            
-            <View style={styles.statsContainer}>
-              <View style={styles.statBox}>
-                <Text style={styles.statNumber}>$2.5B+</Text>
-                <Text style={styles.statLabel}>Total Volume</Text>
-              </View>
-              <View style={styles.statBox}>
-                <Text style={styles.statNumber}>100K+</Text>
-                <Text style={styles.statLabel}>Users</Text>
-              </View>
-            </View>
-
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.navigate('Swap')}
-            >
-              <Text style={styles.buttonText}>Start Trading</Text>
-            </TouchableOpacity>
-
-            <View style={styles.features}>
-              <Text style={styles.featureText}>• Instant Token Swaps</Text>
-              <Text style={styles.featureText}>• Low Transaction Fees</Text>
-              <Text style={styles.featureText}>• Secure Trading</Text>
-            </View>
+      <View style={styles.content}>
+        <Text style={styles.title}>Mini DEX</Text>
+        <Text style={styles.subtitle}>Decentralized Token Exchange</Text>
+        
+        <View style={styles.statsContainer}>
+          <View style={styles.statBox}>
+            <Text style={styles.statNumber}>$2.5B+</Text>
+            <Text style={styles.statLabel}>Total Volume</Text>
+          </View>
+          <View style={styles.statBox}>
+            <Text style={styles.statNumber}>100K+</Text>
+            <Text style={styles.statLabel}>Users</Text>
           </View>
         </View>
-      </ImageBackground>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Swap')}
+        >
+          <Text style={styles.buttonText}>Start Trading</Text>
+        </TouchableOpacity>
+
+        <View style={styles.features}>
+          <Text style={styles.featureText}>• Instant Token Swaps</Text>
+          <Text style={styles.featureText}>• Low Transaction Fees</Text>
+          <Text style={styles.featureText}>• Secure Trading</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -54,19 +46,13 @@ export default function HomeScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  backgroundImage: {
-    flex: 1,
-    width: '100%',
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    justifyContent: 'center',
+    backgroundColor: '#1a1a1a',
   },
   content: {
+    flex: 1,
     padding: 20,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 42,
