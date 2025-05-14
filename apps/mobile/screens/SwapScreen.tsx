@@ -7,7 +7,7 @@ import {
   Alert,
   ScrollView,
 } from 'react-native';
-import "global.css";
+import "./global.css";
 
 export default function SwapScreen() {
   const [fromToken, setFromToken] = useState('');
