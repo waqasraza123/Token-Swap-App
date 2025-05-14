@@ -15,7 +15,7 @@ export class Web3ConfigService {
             throw new Error('RPC_URL or METAMASK_PRIVATE_KEY is not defined in the .env file');
         }
 
-        this.provider = new ethers.JsonRpcProvider(rpcUrl);
+        this.provider = new ethers.JsonRpcProvider(rpcUrl);;
         this.wallet = new ethers.Wallet(privateKey, this.provider);
     }
 
