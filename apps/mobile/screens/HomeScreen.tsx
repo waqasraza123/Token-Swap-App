@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import "global.css";
 
 type Props = {
   navigation: NativeStackNavigationProp<any>;
