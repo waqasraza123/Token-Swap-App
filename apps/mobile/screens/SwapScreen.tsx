@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TextInput,
   TouchableOpacity,
   Alert,
-  Dimensions,
+  ScrollView,
 } from 'react-native';
-
-const { width } = Dimensions.get('window');
 
 export default function SwapScreen() {
   const [fromToken, setFromToken] = useState('');
@@ -32,128 +29,82 @@ export default function SwapScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.card}>
-        <Text style={styles.title}>Swap Tokens</Text>
-        
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>From</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter token address"
-            placeholderTextColor="#666"
-            value={fromToken}
-            onChangeText={setFromToken}
-          />
-        </View>
-        
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>To</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter token address"
-            placeholderTextColor="#666"
-            value={toToken}
-            onChangeText={setToToken}
-          />
-        </View>
-        
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Amount</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter amount"
-            placeholderTextColor="#666"
-            value={amount}
-            onChangeText={setAmount}
-            keyboardType="numeric"
-          />
-        </View>
-        
-        <TouchableOpacity 
-          style={styles.button}
-          onPress={handleSwap}
-        >
-          <Text style={styles.buttonText}>Swap Tokens</Text>
-        </TouchableOpacity>
+    <ScrollView className="flex-1 bg-gray-900">
+      <View className="p-6">
+        <View className="bg-gray-800/50 rounded-3xl p-6">
+          <Text className="text-2xl font-bold text-white mb-6 text-center">
+            Swap Tokens
+          </Text>
+          
+          <View className="mb-4">
+            <Text className="text-gray-300 text-base mb-2 font-medium">
+              From
+            </Text>
+            <TextInput
+              className="bg-gray-700/50 rounded-xl p-4 text-white text-base"
+              placeholder="Enter token address"
+              placeholderTextColor="#9CA3AF"
+              value={fromToken}
+              onChangeText={setFromToken}
+            />
+          </View>
+          
+          <View className="mb-4">
+            <Text className="text-gray-300 text-base mb-2 font-medium">
+              To
+            </Text>
+            <TextInput
+              className="bg-gray-700/50 rounded-xl p-4 text-white text-base"
+              placeholder="Enter token address"
+              placeholderTextColor="#9CA3AF"
+              value={toToken}
+              onChangeText={setToToken}
+            />
+          </View>
+          
+          <View className="mb-6">
+            <Text className="text-gray-300 text-base mb-2 font-medium">
+              Amount
+            </Text>
+            <TextInput
+              className="bg-gray-700/50 rounded-xl p-4 text-white text-base"
+              placeholder="Enter amount"
+              placeholderTextColor="#9CA3AF"
+              value={amount}
+              onChangeText={setAmount}
+              keyboardType="numeric"
+            />
+          </View>
+          
+          <TouchableOpacity 
+            className="bg-blue-500 p-4 rounded-xl mb-6"
+            style={{
+              shadowColor: '#60A5FA',
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.3,
+              shadowRadius: 4.65,
+              elevation: 8,
+            }}
+            onPress={handleSwap}
+          >
+            <Text className="text-white text-lg font-bold text-center">
+              Swap Tokens
+            </Text>
+          </TouchableOpacity>
 
-        <View style={styles.infoContainer}>
-          <Text style={styles.infoText}>• Instant token swaps on Uniswap</Text>
-          <Text style={styles.infoText}>• Best rates guaranteed</Text>
-          <Text style={styles.infoText}>• Secure transactions</Text>
+          <View className="bg-gray-700/30 rounded-xl p-4">
+            <Text className="text-gray-400 text-sm mb-2">
+              • Instant token swaps on Uniswap
+            </Text>
+            <Text className="text-gray-400 text-sm mb-2">
+              • Best rates guaranteed
+            </Text>
+            <Text className="text-gray-400 text-sm">
+              • Secure transactions
+            </Text>
+          </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#1a1a1a',
-    padding: 20,
-  },
-  card: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 20,
-    padding: 24,
-    width: '100%',
-    maxWidth: width - 40,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginBottom: 24,
-    textAlign: 'center',
-  },
-  inputContainer: {
-    marginBottom: 20,
-  },
-  label: {
-    color: '#ffffff',
-    fontSize: 16,
-    marginBottom: 8,
-    fontWeight: '500',
-  },
-  input: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 12,
-    padding: 16,
-    color: '#ffffff',
-    fontSize: 16,
-    width: '100%',
-  },
-  button: {
-    backgroundColor: '#2196F3',
-    padding: 16,
-    borderRadius: 12,
-    alignItems: 'center',
-    marginTop: 8,
-    shadowColor: '#2196F3',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-    elevation: 8,
-  },
-  buttonText: {
-    color: '#ffffff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  infoContainer: {
-    marginTop: 24,
-    padding: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.03)',
-    borderRadius: 12,
-  },
-  infoText: {
-    color: '#e0e0e0',
-    fontSize: 14,
-    marginBottom: 8,
-    opacity: 0.9,
-  },
-});
